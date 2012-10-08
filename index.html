@@ -77,7 +77,7 @@
 					</section>
 					<section>
 						<p>
-							<div class="fragment"><img src="img/original.jpg" alt=""></div>
+							<div class=""><img src="img/original.jpg" alt=""></div>
 						</p>
 					</section>
 				</section>
@@ -89,8 +89,8 @@
 						<p>
 							<div>
 								<p class="fragment">
-								Si buscas en google ...
-							</p>
+									Si buscas en google ...
+								</p>
 							</div>
 							<div class="fragment"><img src="img/bdd.jpg" alt=""></div>
 							<ul>
@@ -101,31 +101,96 @@
 					<section>
 						<ul>
 							<li class="fragment">Behavior-driven development</li>
-							<li class="fragment">Es un proceso de desarrollo del software basado en el test-driven development (TDD</li>
+							<li class="fragment">Es un proceso de desarrollo del software basado en el test-driven development (TDD)</li>
 						</ul>
+						<div class="fragment"><img src="img/bdd.png" alt=""></div>
 
 					</section>
 					<section>
 						<h2>Es una evolución del TDD</h2>
 						<div class="fragment"><img src="img/evolution.jpg" alt=""></div>
 					</section>
+					<section>
+						<h2>Mismo vocabulario</h2>
+						<ul>
+							<li class="fragment">Para Testers</li>
+							<li class="fragment">Para Analistas</li>
+							<li class="fragment">Para Developers</li>
+							<li class="fragment">Para el cliente</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Misma metodología</h2>
+						<ul>
+							<li><span style="color:red">Fail</span></li>
+							<li><span style="color:green">Passed</span></li>
+						</ul>
+					</section>
+					<section>
+						<h2>¿Dónde está el cambio?</h2>
+						<h6 class="fragment">Uso de historias de comportamiento (story's behaviour)</h6>
+					</section>
+					<section>
+						<h2>Historia</h2>
+						<p>
+							<ul>
+								<li>Given something</li>
+								<li>when a event occurs</li>
+								<li>then that will happen</li>
+							</ul>
+						</p>
+
+					</section>	
+					<section>
+						<h2>¿Cómo contamos estas historias?</h2>
+						<p class="">
+							Gherkin
+							<img src="" alt="">
+							<pre><code>
+								1: Feature: Some terse yet descriptive text of what is desired
+								2:   In order to realize a named business value
+								3:   As an explicit system actor
+								4:   I want to gain some beneficial outcome which furthers the goal
+								5: 
+								6:   Scenario: Some determinable business situation
+								7:     Given some precondition
+								8:       And some other precondition
+								9:      When some action by the actor
+								10:       And some other action
+								11:       And yet another action
+								12:      Then some testable outcome is achieved
+								13:       And something else we can check happens too
+								14: 
+								15:   Scenario: A different situation
+								16:       ...
+							</code></pre>
+						</p>
+					</section>
 				</section>
-
 				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
-					</a>
-				</section>
-
-
-
-				<section>
-					<h2>Stellar Links</h2>
+					<h2>Behat</h2>
 					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+						<li class="fragment">Está basado en cucumber (BDD para python)</li>
+						<li class="fragment">Hace uso de Gherkin</li>
+						<li class="fragment">Es BDD para PHP</li>
+						<li class="fragment">Te genera a partir de gherkin las funciones</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Ejemplo</h1>
+					<div><img src="img/behat-11.jpg" alt=""><img src="img/symfony_black_01.png" alt=""></div>
+
+				</section>
+
+
+
+
+
+				<section>
+					<h2>Links</h2>
+					<ul>
+						<li><a href="http://behat.org/">Behat</a></li>
+						<li><a href="http://drupal.org/project/behat">Behat Drupal</a></li>
 					</ul>
 				</section>
 
