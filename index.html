@@ -77,7 +77,7 @@
 						</p>
 					</section>
 					<section>
-						<div><img src="img/TDD-Diagram.gif" alt="" class=""></div>
+						<div><img src="img/tdddiagram.png" alt="" class=""></div>
 					</section>
 					<section>
 						<h2>¿Qué conseguimos con esto?</h2>
@@ -155,21 +155,25 @@
 					<section>
 						<h2>Misma metodología</h2>
 						<ul>
-							<li><span style="color:red">Fail</span></li>
-							<li><span style="color:green">Passed</span></li>
+							<div><img src="img/tdddiagram.png" alt="" class=""></div>
 						</ul>
 					</section>
 					<section>
 						<h2>¿Dónde está el cambio?</h2>
-						<h6 class="fragment">Uso de historias de comportamiento (story's behaviour)</h6>
+						<ul>
+							<li class="fragment">Uso de historias de comportamiento (story's behaviour)</li>
+							<li class="fragment">No se basa en test, sino es especificaciones</li>
+							<li class="fragment">En vez de caso de test (test case) uso de contextos (context)</li>
+							<li class="fragment">En vez de assert, expect</li>
+						</ul>
 					</section>
 					<section>
-						<h2>Historia</h2>
+						<h2>¿Qué es una historia?</h2>
 						<p>
 							<ul>
-								<li>Given something</li>
-								<li>when a event occurs</li>
-								<li>then that will happen</li>
+								<li class="fragment">Given something</li>
+								<li class="fragment">when a event occurs</li>
+								<li class="fragment">then that will happen</li>
 							</ul>
 						</p>
 
@@ -180,38 +184,52 @@
 							Gherkin
 							<img src="" alt="">
 							<pre><code>
-								1: Feature: Some terse yet descriptive text of what is desired
-								2:   In order to realize a named business value
-								3:   As an explicit system actor
-								4:   I want to gain some beneficial outcome which furthers the goal
-								5: 
-								6:   Scenario: Some determinable business situation
-								7:     Given some precondition
-								8:       And some other precondition
-								9:      When some action by the actor
-								10:       And some other action
-								11:       And yet another action
-								12:      Then some testable outcome is achieved
-								13:       And something else we can check happens too
-								14: 
-								15:   Scenario: A different situation
-								16:       ...
+								Feature: Some terse yet descriptive text of what is desired
+								   In order to realize a named business value
+								   As an explicit system actor
+								   I want to gain some beneficial outcome which furthers the goal
+								 
+								   Scenario: Some determinable business situation
+								     Given some precondition
+								       And some other precondition
+								      When some action by the actor
+								       And some other action
+								       And yet another action
+								      Then some testable outcome is achieved
+								       And something else we can check happens too
+								 
+								   Scenario: A different situation
+								       ...
 							</code></pre>
 						</p>
 					</section>
 				</section>
 				<section>
-					<h2>Links</h2>
-					<ul>
-						<li><a href="http://behat.org/">Behat</a></li>
-						<li><a href="http://drupal.org/project/behat">Behat Drupal</a></li>
-					</ul>
+					<h2>¿Cómo hacer BDD?</h2>
+					<p>
+						<ul>
+							<li>Mocha para javascript</li>
+							<li>Behat para php</li>
+							<li>Cucumber para ruby</li>
+							<li>freshen para python</li>
+							<li>java JBehave</li>
+							<li>...</li>
+						</ul>
+					</p>
 				</section>
-
-
+				<section>
+					<h2>¿Cómo practico TDD/BDD, lecturas recomendadas?</h2>
+					<p>
+						<ul>
+							<li>Dirigido por test de Carlos Ble <a href="http://www.dirigidoportests.com/el-libro">libro</a></li>
+							<li>Katas de código (katayunos y merendojos)</li>
+							<li><a href="http://www.solveet.com/">solveet</a></li>
+						</ul>
+					</p>
+				</section>
 				<section>
 					<h1>That's all folks</h1>
-					<img src="img/end.gif" />
+					<img src="img/bazqF.gif" />
 				</section>
 			</div>
 
@@ -245,7 +263,7 @@
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-				{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+				//{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
 				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 				{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 				{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
