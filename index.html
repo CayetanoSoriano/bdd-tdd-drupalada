@@ -85,22 +85,21 @@
 							<li class="fragment">Keep It Simple, Stupid (KISS) </li>
 							<li class="fragment">Don't repeat yourself (DRY)</li>
 							<li class="fragment">Evitar dolores de cabeza por bugs</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Ventajas:</h2>
-						<ul>
-							<li class="fragment">Los programadores que utilizan el desarrollo guiado por pruebas en un proyecto <strong>virgen</strong> encuentran que en raras ocasiones tienen la necesidad de utilizar el depurador o debugger.
+							<li class="fragment">Maximizar la productividad</li>
+							<li class="fragment">Maximizar la calidad de nuestro código</li>
+								<li class="fragment">Los programadores que utilizan el desarrollo guiado por pruebas en un proyecto <strong>virgen</strong> encuentran que en raras ocasiones tienen la necesidad de utilizar el depurador o debugger.
 							</li>
 							<li class="fragment">Puede proporcionar un gran valor añadido en la creación de software, produciendo aplicaciones de más calidad y en menos tiempo.</li>
 							<li class="fragment">Al comenzar por un test, estamos adelantado trabajo y tomando decisiones sobre el resultado.</li>
 						</ul>
 					</section>
-					<section>
-						<h2>Desventajas:</h2>
+
+				<section>
+						<h2>Inconvenientes:</h2>
 						<ul>
 							<li>Aprendizaje de aplicación de la metodología.</li>
+							<li>No es fácil de debugear</li>
+							<li>puede no ser bastante explicativo</li>
 						</ul>
 					</section>
 					<section>
@@ -112,6 +111,33 @@
 						<h2>¿cómo podeis hacer TDD?</h2>
 						<p>Con cualquier xunit</p>
 					</section>
+						<section>
+<h2>Escribimos el test:</h2>
+<pre><code>
+public void testSuma() {
+	assertEquals(5, Matematicas.suma(2,3));
+}</code></pre></section>
+						<section>
+
+<h2>Desarrollamos el código suficiente para que se pueda realizar el test:</h2>
+<pre><code>
+public class Matematicas {
+   public static int suma (int a, int b) {
+      return 0; 
+   }
+}
+</code></pre></section>
+						<section>
+
+<h2>Hacemos que lo pasoel código suficiente para que pase el test:</h2>
+<pre><code>
+public class Matematicas {
+   public static int suma (int a, int b) {
+      return a+b; 
+   }
+}
+</code></pre></section>
+						<section><pre><code></code></pre></section>
 				</section>
 				
 
@@ -218,6 +244,84 @@
 					</p>
 				</section>
 				<section>
+					<section>
+						<h2>Ejemplo con behat</h2>
+					</section>
+					<section>
+<h2>Creamos la feature</h2>
+<pre><code>
+#api_login.feature
+Feature: Con privilegios de usar la api
+  Comprueba que el usuario tiene privilegios para acceder a la API
+
+  Scenario: Sin acceso a la API, API key no válida
+    Given Una API key "12345"
+    When Pido un recurso de la API protegido
+    Then Debe devolver status 401
+</code></pre>
+					</section>
+<section>
+<pre><code>
+    /**
+     * @Given /^Una API key "([^"]*)"$/
+     */
+    public function unaApiKey($apikey)
+    {
+	    throw new PendingException();
+    }
+
+    /**
+     * @When /^Pido un recurso de la API protegido$/
+     */
+    public function pidoUnRecursoDeLaApiProtegido()
+    {
+	    throw new PendingException();
+    }
+
+    /**
+     * @Then /^Debe devolver status (\d+)$/
+     */
+    public function debeDevolverStatus($httpStatusCode)
+    {
+        throw new PendingException();
+    }
+
+</code></pre>
+</section>
+<section>
+<pre><code>
+    /**
+     * @Given /^Una API key "([^"]*)"$/
+     */
+    public function unaApiKey($apikey)
+    {
+        $this->apikey=$apikey;
+    }
+
+    /**
+     * @When /^Pido un recurso de la API protegido$/
+     */
+    public function pidoUnRecursoDeLaApiProtegido()
+    {
+        $url = $this->parameters['base_url'].$this->get('router')->generate('api_user_validate')."?apikey=".$this->apikey;
+        $browser = $this->get('buzz');
+        $response = $browser->get($url);
+        $this->httpStatusCode = $response->getStatusCode();
+        
+    }
+
+    /**
+     * @Then /^Debe devolver status (\d+)$/
+     */
+    public function debeDevolverStatus($httpStatusCode)
+    {
+        assertEquals($this->httpStatusCode,$httpStatusCode);
+    }
+
+</code></pre>
+</section>
+				</section>
+				<section>
 					<h2>¿Cómo practico TDD/BDD, lecturas recomendadas?</h2>
 					<p>
 						<ul>
@@ -229,7 +333,10 @@
 				</section>
 				<section>
 					<h1>That's all folks</h1>
-					<img src="img/bazqF.gif" />
+					<img src="img/end.gif" />
+				</section>
+				<section>
+					<h1>¿Preguntas?</h1>	
 				</section>
 			</div>
 
@@ -263,7 +370,7 @@
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-				//{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+				{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
 				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 				{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 				{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
